@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <link rel="stylesheet" href="OtherPages.css"></link>
+        <title>Ticket Details</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            #{movieBean.setTicketDetails()}
+            <div class="data_table">
+                <h:outputText value="Movie: #{movieBean.ticket.moviename}" class="text"/><br/>
+                <h:outputText value="Theater: #{movieBean.ticket.theatername}" class="text"/><br/>
+                 <h:outputText value="Address:#{movieBean.ticket.theateraddress}" class="text"/><br/>
+                <h:outputText value="Time: #{movieBean.ticket.time}" class="text"/><br/>
+                <h:outputText value="Price: $#{movieBean.price}" class="text"/>
+            </div><br/>
+            <h:outputText value="First Name: " class="text"/>
+            <h:inputText value="#{movieBean.ticket.firstname}" class="text" />
+            <h:outputText value="Last Name: " class="text"/>
+            <h:inputText value="#{movieBean.ticket.lastname}" class="text"/><br/>
+            <h:outputText value="Credit Card #: " class="text"/>
+            <h:inputText value="#{movieBean.ticket.creditcardnumber}" class="text"/>
+            <h:commandButton value="Confirm Ticket" class="button" action="#{movieBean.submitTicket}"/>
+            <h:outputText value="#{movieBean.creditCardString}" class="text"/>    
+            <h:commandButton value="Back" action="#{movieBean.goToSearchResults()}" class="button"/>
+        </h:form>
+    </h:body>
+</html>

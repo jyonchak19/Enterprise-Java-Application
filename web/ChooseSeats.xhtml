@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <link rel="stylesheet" href="OtherPages.css"></link>
+        <title>Select number of seats</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class="data_table">
+                <h:outputText value="$10 per seat" class="text"/><br/>
+                <h:outputText value="Enter number of seats: " class="text"/>
+                <h:inputText value="#{movieBean.seatNum}" class="text"/>
+                <h:commandButton value="Continue" action="#{movieBean.validateSeatNum}" class="button"/>
+                <h:outputText value="#{movieBean.seatNumString}" class="text"/>
+                <h:commandButton value="Back" action="#{movieBean.goToSearchResults()}" class="button"/>
+            </div>
+        </h:form>
+    </h:body>
+</html>

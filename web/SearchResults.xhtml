@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" href="OtherPages.css"></link>
+        <title>Search Results</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h:outputText value="Zipcode: " class="text"/>
+                <h:inputText value="#{movieBean.zipcode}" class="text"/>
+                <h:commandButton value="Search" class="button" action="#{movieTheaterBean.goToSearchWithResults()}"/>
+                <div class="data_table">
+                    <h:dataTable value="#{movieBean.getTheatersByZip()}" var="theater">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Theater Name" class="text"/>
+                            </f:facet>
+                            <h:outputText value="#{theater.name}" class="text"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Address" class="text"/>
+                            </f:facet>
+                            <h:outputText value="#{theater.address}" class="text"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Select" class="text"/>
+                            </f:facet>
+                            <h:commandButton value="Show" class="button" action="#{movieBean.goToShowingsInTheater(theater)}" >
+                            </h:commandButton>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+                <h:commandButton value="Back" action="#{movieBean.goToSearch()}" class="button"/>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>

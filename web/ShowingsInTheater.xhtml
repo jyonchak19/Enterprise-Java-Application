@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" href="OtherPages.css"></link>
+        <title>Movie Showings in the Selected Theater</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h:inputText value="#{movieBean.zipcode}" class="text"/>
+                <h:commandButton value="Search" class="button" action="#{movieBean.goToSearchResults()}"/>
+                <div class="data_table">
+                    <h:dataTable value="#{movieBean.getMoviesByTheater()}" var="movie">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Title" class="text"/>
+                            </f:facet>
+                            <h:outputText value="#{movie.movieDetailsFk.movietitle}" class="text"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Description" class="text"/>
+                            </f:facet>
+                            <h:outputText value="#{movie.movieDetailsFk.moviedescription}" class="text"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Show Time" class="text"/>
+                            </f:facet>
+                            <h:outputText value="#{movie.showTime}" class="text"/>
+                        </h:column>
+                        <h:column>
+
+                            <f:facet name="header">
+                                <h:outputText value="" class="text"/>
+                            </f:facet>
+                            <h:commandButton value="Select" class="button" action="#{movieBean.goToChooseSeats(movie)}" >
+                            </h:commandButton>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+                <h:commandButton value="Back" action="#{movieBean.goToSearchResults()}" class="button"/>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

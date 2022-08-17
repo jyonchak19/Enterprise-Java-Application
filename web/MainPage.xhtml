@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <link rel="stylesheet" href="MainPage.css"></link>
+        <title>Movie Project</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class="head_box">
+                <div class="image" >
+                    <img src="images\TheaterLogo.png" class="movie_image"></img>
+                </div>
+                <div class="menu">
+                    <h:outputText value="Movie Tickets" class="title_text"/><br/>
+                    <h:commandButton value="Show All Movies" action="#{movieBean.goToMovies()}" class="button"/>
+                    <h:commandButton value="Show All Theaters" action="#{movieBean.goToTheaters()}" class="button"/>
+                    <h:commandButton value="Search for Theaters by Zip" action="#{movieBean.goToSearch()}" class="button"/>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>

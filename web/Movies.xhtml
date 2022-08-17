@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>All Movies</title>
+        <link rel="stylesheet" href="OtherPages.css"></link>
+    </h:head>
+    <h:body>
+        <h:form class="data_table">
+            <h:dataTable value="#{movieBean.allMovies}" var="movies" >
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Title" class="text"/>
+                   </f:facet>
+                 <h:outputText value="#{movies.movietitle}" class="text"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Description" class="text"/>
+                    </f:facet>
+                    <h:outputText value="#{movies.moviedescription}" class="text"/>
+                </h:column>
+            </h:dataTable>
+            <h:commandButton value="Back" action="#{movieBean.goToMainPage()}" class="button"/>
+        </h:form>
+    </h:body>
+</html>

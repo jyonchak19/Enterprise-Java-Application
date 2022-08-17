@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <link rel="stylesheet" href="OtherPages.css"></link>
+        <title>Search</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class="data_table">
+                <h:outputText value="Zipcode: " class="text"/>
+                <h:inputText  value="#{movieBean.zipcode}" class="text"/>
+                <h:commandButton value="Search" class="button" action="#{movieBean.validateZip()}"/>
+                <h:outputText value="#{movieBean.zipcodeString}" class="text"/>
+                <h:commandButton value="Back" action="#{movieBean.goToMainPage()}" class="button"/>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+
